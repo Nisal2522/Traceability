@@ -1,0 +1,12 @@
+<div class="space-y-3">
+  @for (m of metrics; track m.label) {
+    <div>
+      <div class="flex justify-between mb-1.5">
+        <span class="text-xs font-medium text-gray-700">{{ m.label }}</span>
+        <span class="text-xs font-semibold" [style.color]="m.color" style="font-family:'JetBrains Mono'">{{ m.value }}</span>
+      </div>
+      <app-green-bar [pct]="m.pct" />
+      <p class="text-[10px] text-gray-400 mt-1">{{ m.note }}</p>
+    </div>
+  }
+</div>

@@ -1,0 +1,50 @@
+<header
+  class="sticky top-0 z-50 w-full border-b border-gray-100"
+  style="background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);box-shadow:0 1px 8px rgba(0,0,0,0.06)"
+>
+  <div class="container-fluid mx-auto px-4 flex items-center gap-4 h-14">
+    <!-- Logo -->
+    <div class="flex items-center gap-2.5 flex-shrink-0">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold" [style.background]="PRIMARY">
+        M
+      </div>
+      <div>
+        <p class="font-semibold text-gray-900 text-sm leading-none">Mango Pvt Ltd</p>
+        <p class="text-[10px] text-gray-400 leading-none mt-0.5">Premium Mango Puree</p>
+      </div>
+    </div>
+
+    <!-- Product name -->
+    <div class="hidden sm:block border-l border-gray-200 pl-4">
+      <p class="text-sm font-medium text-gray-700">Premium Mango Puree <span class="text-gray-400 font-normal">· Batch MP240517</span></p>
+    </div>
+
+    <!-- QR badge -->
+    <div class="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-full text-xs font-semibold flex-shrink-0" [style]="'background:' + PRIMARY_LIGHT + ';color:' + PRIMARY">
+      <lucide-icon name="qr-code" [size]="14"></lucide-icon> <span class="hidden sm:inline">QR Verified</span>
+    </div>
+
+    <div class="flex-1"></div>
+
+    <!-- Search -->
+    <div class="hidden md:flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-gray-500 border border-gray-200 hover:border-gray-300 transition-colors cursor-pointer" style="background:#FAFAFA">
+      <lucide-icon name="search" [size]="14"></lucide-icon>
+      Search batch...
+    </div>
+
+    <!-- Language -->
+    <select
+      [(ngModel)]="lang"
+      class="hidden sm:block text-xs border border-gray-200 rounded-lg px-2 py-1.5 text-gray-600 bg-white cursor-pointer outline-none flex-shrink-0"
+    >
+      @for (l of langs; track l) {
+        <option [value]="l">{{ l }}</option>
+      }
+    </select>
+
+    <!-- User -->
+    <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0" [style.background]="PRIMARY">
+      JD
+    </div>
+  </div>
+</header>

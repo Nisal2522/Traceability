@@ -1,0 +1,15 @@
+<div class="space-y-2">
+  @for (item of items; track item.q; let i = $index) {
+    <div class="rounded-xl overflow-hidden" style="border:1px solid #F0F0F0">
+      <button class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 transition-colors" (click)="toggle(i)">
+        <span class="text-xs font-semibold text-gray-900 pr-3">{{ item.q }}</span>
+        <span class="text-gray-400 flex-shrink-0 transition-transform text-base" [style.transform]="openIdx === i ? 'rotate(45deg)' : 'none'">+</span>
+      </button>
+      @if (openIdx === i) {
+        <div class="px-3 pb-3 border-t border-gray-100">
+          <p class="text-xs text-gray-600 leading-relaxed pt-2">{{ item.a }}</p>
+        </div>
+      }
+    </div>
+  }
+</div>

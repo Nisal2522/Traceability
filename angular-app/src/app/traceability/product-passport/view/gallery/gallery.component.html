@@ -1,0 +1,17 @@
+<div class="space-y-3">
+  <div class="rounded-xl overflow-hidden bg-gray-100" style="aspect-ratio:16/9">
+    <img [src]="activeItem.url" [alt]="activeItem.label" class="w-full h-full object-cover transition-opacity duration-300" />
+  </div>
+  <div class="flex gap-2 overflow-x-auto pb-1">
+    @for (item of items; track item.url; let i = $index) {
+      <button
+        (click)="setActive(i)"
+        class="flex-shrink-0 rounded-lg overflow-hidden transition-all"
+        [style]="'width:72px;height:48px;border:2px solid ' + (i === active ? PRIMARY : 'transparent') + ';background:#F5F5F5'"
+      >
+        <img [src]="item.url" [alt]="item.label" class="w-full h-full object-cover" [style.opacity]="i === active ? 1 : 0.55" />
+      </button>
+    }
+  </div>
+  <p class="text-xs text-gray-500 text-center">{{ activeItem.label }}</p>
+</div>

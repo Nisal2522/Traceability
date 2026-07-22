@@ -1,0 +1,14 @@
+<div class="space-y-2">
+  @for (c of checks; track c.label) {
+    <div class="flex items-center gap-3 rounded-lg p-3" style="background:#F0FDF4;border:1px solid #DCFCE7">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" [style]="'background:' + PRIMARY_LIGHT + ';color:' + PRIMARY">
+        <lucide-icon name="check-circle-2" [size]="16"></lucide-icon>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-semibold text-gray-900">{{ c.label }}</p>
+        <p class="text-[10px] text-gray-500 mt-0.5">{{ c.lab }} · {{ c.date }}</p>
+      </div>
+      <app-badge>Passed</app-badge>
+    </div>
+  }
+</div>

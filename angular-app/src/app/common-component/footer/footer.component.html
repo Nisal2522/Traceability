@@ -1,0 +1,17 @@
+<footer class="border-t border-gray-100 py-8 px-4" style="background:white">
+  <div class="container-fluid mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold" [style.background]="PRIMARY">T</div>
+      <div>
+        <p class="font-semibold text-gray-900 text-sm">Powered by TerraX</p>
+        <p class="text-xs text-gray-400">End-to-End Food Traceability</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-2 justify-center">
+      @for (t of tags; track t) {
+        <span class="text-[10px] px-2.5 py-1 rounded-full text-gray-500" style="background:#F5F5F5;border:1px solid #E5E5E5">{{ t }}</span>
+      }
+    </div>
+    <p class="text-[10px] text-gray-400">© 2026 TerraX Technologies</p>
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.app-card-surface {
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9)),
+    #fff;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.app-card-surface:hover {
+  border-color: rgba(148, 163, 184, 0.45) !important;
+  transform: translateY(-1px);
+}

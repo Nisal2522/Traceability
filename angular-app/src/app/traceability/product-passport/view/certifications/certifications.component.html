@@ -1,0 +1,33 @@
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+  @for (cert of certs; track cert.name) {
+    <div
+      (click)="toggle(cert.name)"
+      class="rounded-xl p-4 cursor-pointer transition-all active:scale-97"
+      [style]="
+        'background:' + (flipped === cert.name ? cert.color : 'white') + ';' +
+        'border:1.5px solid ' + cert.color + '33;' +
+        'box-shadow:' + SHADOW_SM + ';' +
+        'min-height:120px'
+      "
+    >
+      @if (flipped === cert.name) {
+        <div class="text-white">
+          <p class="text-xs font-bold mb-2">{{ cert.name }}</p>
+          <p class="text-[10px] opacity-80 mb-1" style="font-family:'JetBrains Mono'">{{ cert.cert }}</p>
+          <p class="text-[10px] opacity-80 mb-1">By {{ cert.body }}</p>
+          <p class="text-[10px] opacity-80">Valid: {{ cert.valid }}</p>
+          <span class="text-[10px] mt-2 flex items-center gap-1 opacity-70"><lucide-icon name="check" [size]="11"></lucide-icon> Active &amp; Verified</span>
+        </div>
+      } @else {
+        <div>
+          <span class="w-10 h-10 rounded-lg flex items-center justify-center" [style]="'background:' + cert.color + '14;color:' + cert.color">
+            <lucide-icon [name]="cert.icon" [size]="20"></lucide-icon>
+          </span>
+          <p class="text-sm font-semibold text-gray-900 mt-2">{{ cert.name }}</p>
+          <p class="text-[10px] text-gray-400 mt-0.5">Valid until {{ cert.valid }}</p>
+          <span class="text-[10px] mt-2 block" [style.color]="cert.color">Tap to verify →</span>
+        </div>
+      }
+    </div>
+  }
+</div>

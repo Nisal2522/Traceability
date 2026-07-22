@@ -1,0 +1,14 @@
+// Minimal Bootstrap import — only pulls in what's actually used in this app
+// (the .container-fluid wrapper on header/main/footer). Sass @import definitions
+// (functions/variables/maps/mixins) emit zero CSS on their own; only `containers`
+// actually generates output (.container, .container-fluid, .container-{breakpoint}),
+// so this compiles to a few KB instead of the ~230KB full bootstrap.min.css.
+//
+// If more Bootstrap components are adopted later (buttons, cards, forms, etc.),
+// add their partials here explicitly rather than reverting to the full bundle.
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/containers';

@@ -1,0 +1,19 @@
+<div class="space-y-3">
+  @for (d of rows; track d.label) {
+    <app-detail-row [label]="d.label" [value]="d.value" />
+  }
+  <div class="grid grid-cols-2 gap-3 mt-3">
+    <div class="rounded-lg p-3" style="background:#F0FDF4;border:1px solid #DCFCE7">
+      <p class="text-[10px] text-green-600 mb-2 font-medium">Temperature Log</p>
+      @for (t of tempLog; track t) {
+        <p class="text-xs text-gray-700 py-0.5">{{ t }}</p>
+      }
+    </div>
+    <div class="rounded-lg p-3" style="background:#EFF6FF;border:1px solid #DBEAFE">
+      <p class="text-[10px] text-blue-600 mb-2 font-medium">Humidity Log</p>
+      @for (h of humidityLog; track h) {
+        <p class="text-xs text-gray-700 py-0.5">{{ h }}</p>
+      }
+    </div>
+  </div>
+</div>

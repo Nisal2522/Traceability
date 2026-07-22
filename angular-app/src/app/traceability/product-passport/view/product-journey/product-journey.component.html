@@ -1,0 +1,59 @@
+<app-card className="overflow-hidden">
+  <div class="journey-header flex items-center justify-between px-5 py-4 border-b border-gray-100">
+    <div>
+      <h2 class="font-semibold text-gray-900 flex items-center gap-2">
+        <lucide-icon name="route" [size]="18" [color]="PRIMARY"></lucide-icon>
+        Product Journey
+      </h2>
+      <p class="text-xs text-gray-500 mt-0.5">Interactive supply chain map · Click any pin for details</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <app-badge><lucide-icon name="map-pin" [size]="11"></lucide-icon> Sri Lanka</app-badge>
+      <span class="text-gray-300 text-xs">to</span>
+      <app-badge><lucide-icon name="map-pin" [size]="11"></lucide-icon> USA</app-badge>
+    </div>
+  </div>
+
+  <div class="journey-map-shell relative flex" style="height:540px">
+    <div #mapEl class="journey-map transition-all duration-300" [class.has-drawer]="selected" style="height:540px"></div>
+
+    @if (selected; as sel) {
+      <div class="journey-drawer w-[340px] h-full overflow-y-auto border-l border-gray-100 animate-slide-right" style="background:#FAFAFA">
+        <div class="sticky top-0 z-10 px-4 py-3 flex items-start gap-3 border-b border-gray-100" style="background:white">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" [style.background]="sel.color + '18'">
+            <lucide-icon [name]="sel.icon" [size]="20" [color]="sel.color"></lucide-icon>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-semibold text-gray-900 text-sm leading-tight">{{ sel.stage }}</h3>
+            <p class="text-xs text-gray-500 mt-0.5">{{ sel.location }}</p>
+            <app-badge [color]="sel.color" [bg]="sel.color + '18'">
+              <span class="inline-flex items-center gap-1"><lucide-icon name="calendar" [size]="11"></lucide-icon>{{ sel.date }}</span>
+            </app-badge>
+          </div>
+          <button
+            (click)="close()"
+            class="w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors text-sm flex-shrink-0"
+          >
+            <lucide-icon name="x" [size]="14"></lucide-icon>
+          </button>
+        </div>
+
+        <div class="p-4 space-y-2">
+          @for (d of sel.details; track d.label) {
+            <div class="flex justify-between items-start py-2.5 border-b border-gray-100">
+              <span class="text-xs text-gray-500 flex-shrink-0">{{ d.label }}</span>
+              <span class="text-xs font-medium text-gray-900 text-right ml-3" style="font-family:'JetBrains Mono'">{{ d.value }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="mx-4 mb-4 rounded-xl p-3" [style]="'background:' + PRIMARY_LIGHT + ';border:1px solid ' + PRIMARY + '22'">
+          <p class="text-xs font-semibold mb-1 flex items-center gap-1" [style.color]="PRIMARY">
+            <lucide-icon name="shield-check" [size]="14"></lucide-icon> Blockchain Verified
+          </p>
+          <p class="text-[10px] text-gray-600">Data confirmed on TerraX chain · No tampering detected</p>
+        </div>
+      </div>
+    }
+  </div>
+</app-card>
