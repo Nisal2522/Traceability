@@ -1,16 +1,16 @@
 <app-card className="overflow-hidden">
-  <div class="journey-header flex items-center justify-between px-5 py-4 border-b border-gray-100">
-    <div>
+  <div class="journey-header flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-5 py-4 border-b border-gray-100">
+    <div class="min-w-0">
       <h2 class="font-semibold text-gray-900 flex items-center gap-2">
         <lucide-icon name="route" [size]="18" [color]="PRIMARY"></lucide-icon>
         Product Journey
       </h2>
       <p class="text-xs text-gray-500 mt-0.5">Interactive supply chain map · Click any pin for details</p>
     </div>
-    <div class="flex items-center gap-2">
-      <app-badge><lucide-icon name="map-pin" [size]="11"></lucide-icon> Sri Lanka</app-badge>
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <app-badge class="whitespace-nowrap"><lucide-icon name="map-pin" [size]="11"></lucide-icon> Sri Lanka</app-badge>
       <span class="text-gray-300 text-xs">to</span>
-      <app-badge><lucide-icon name="map-pin" [size]="11"></lucide-icon> USA</app-badge>
+      <app-badge class="whitespace-nowrap"><lucide-icon name="map-pin" [size]="11"></lucide-icon> USA</app-badge>
     </div>
   </div>
 

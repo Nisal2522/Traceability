@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 gap-3">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
   @for (s of stats; track s.label) {
     <app-card className="p-3 flex flex-col items-center text-center gap-1" [extraStyle]="'box-shadow:' + SHADOW_SM">
       <span class="w-9 h-9 rounded-full flex items-center justify-center" [style]="'background:' + PRIMARY_LIGHT">
