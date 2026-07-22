@@ -54,6 +54,8 @@ export class ProductJourneyComponent implements AfterViewInit, OnDestroy {
 
   private map: L.Map | null = null
   private markers: L.Marker[] = []
+  private resizeTimer: ReturnType<typeof setTimeout> | null = null
+  private readonly onWindowResize = () => this.refitOnResize()
 
   constructor(private data: TraceabilityDataService) {
     this.stops = this.data.getStops()
@@ -73,7 +75,7 @@ export class ProductJourneyComponent implements AfterViewInit, OnDestroy {
     const map = L.map(mapContainer, {
       center: [25, 30],
       zoom: 2,
-      minZoom: 2,
+      minZoom: 0,
       scrollWheelZoom: true,
       zoomControl: true,
       maxBounds: worldBounds,
@@ -105,6 +107,19 @@ export class ProductJourneyComponent implements AfterViewInit, OnDestroy {
 
     map.fitBounds(routeBounds.pad(0.18), { maxZoom: 3 })
     setTimeout(() => this.map?.invalidateSize(), 80)
+
+    window.addEventListener('resize', this.onWindowResize)
+    window.addEventListener('orientationchange', this.onWindowResize)
+  }
+
+  private refitOnResize() {
+    if (this.resizeTimer) clearTimeout(this.resizeTimer)
+    this.resizeTimer = setTimeout(() => {
+      if (!this.map || this.selected) return
+      this.map.invalidateSize()
+      const routeBounds = L.latLngBounds(this.routeCoords)
+      this.map.fitBounds(routeBounds.pad(0.18), { maxZoom: 3 })
+    }, 200)
   }
 
   select(stop: JourneyStopDTO) {
@@ -122,6 +137,9 @@ export class ProductJourneyComponent implements AfterViewInit, OnDestroy {
   }
 
   private destroyMap() {
+    window.removeEventListener('resize', this.onWindowResize)
+    window.removeEventListener('orientationchange', this.onWindowResize)
+    if (this.resizeTimer) clearTimeout(this.resizeTimer)
     this.markers = []
     this.map?.remove()
     this.map = null
