@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { LucideAngularModule } from 'lucide-angular'
-import { APP_ICONS } from '../../core/icons'
 import { SharedModule } from '../../shared/shared.module'
 import { ProductPassportRoutingModule } from './product-passport-routing.module'
 import { ProductPassportComponent } from './product-passport.component'
@@ -22,7 +20,7 @@ import { PassportComponent } from './view/passport/passport.component'
 import { FaqComponent } from './view/faq/faq.component'
 
 @NgModule({
-  imports: [CommonModule, SharedModule, LucideAngularModule.pick(APP_ICONS), ProductPassportRoutingModule],
+  imports: [CommonModule, SharedModule, ProductPassportRoutingModule],
   declarations: [
     ProductPassportComponent,
     HeroComponent,

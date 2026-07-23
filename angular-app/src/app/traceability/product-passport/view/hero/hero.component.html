@@ -11,7 +11,7 @@
       <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 60%)"></div>
       <!-- Freshness chip -->
       <div class="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-xs font-bold" [style]="'background:' + PRIMARY + ';box-shadow:0 2px 8px rgba(46,125,50,0.4)'">
-        <lucide-icon name="leaf" [size]="14" color="white"></lucide-icon>
+        <app-fa-icon name="leaf" [size]="14" color="white"></app-fa-icon>
         Freshness: 97/100
       </div>
     </div>
@@ -37,7 +37,7 @@
           @for (item of details; track item.label) {
             <div class="product-detail">
               <span class="product-detail__icon" aria-hidden="true">
-                <lucide-icon [name]="detailIcon(item.label)" [size]="15"></lucide-icon>
+                <app-fa-icon [name]="detailIcon(item.label)" [size]="15"></app-fa-icon>
               </span>
               <div class="product-detail__content">
                 <p class="product-detail__label">{{ item.label }}</p>
@@ -55,7 +55,7 @@
         <!-- Authenticated badge -->
         <div class="flex items-center gap-3 rounded-xl p-3" [style]="'background:' + PRIMARY_LIGHT + ';border:1px solid ' + PRIMARY + '22'">
           <div class="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0" [style.background]="PRIMARY">
-            <lucide-icon name="check" [size]="16" color="white"></lucide-icon>
+            <app-fa-icon name="check" [size]="16" color="white"></app-fa-icon>
           </div>
           <div>
             <p class="text-sm font-semibold" [style.color]="PRIMARY">Authentic Product Verified</p>
@@ -66,7 +66,7 @@
         <div class="flex items-center justify-center gap-4 py-2">
           @for (t of trustLine; track t.label) {
             <span class="flex items-center gap-1 text-[10px] text-gray-400">
-              <lucide-icon [name]="t.icon" [size]="12"></lucide-icon>
+              <app-fa-icon [name]="t.icon" [size]="12"></app-fa-icon>
               {{ t.label }}
             </span>
           }

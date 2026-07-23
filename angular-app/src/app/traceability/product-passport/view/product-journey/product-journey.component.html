@@ -2,15 +2,15 @@
   <div class="journey-header flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-5 py-4 border-b border-gray-100">
     <div class="min-w-0">
       <h2 class="font-semibold text-gray-900 flex items-center gap-2">
-        <lucide-icon name="route" [size]="18" [color]="PRIMARY"></lucide-icon>
+        <app-fa-icon name="route" [size]="18" [color]="PRIMARY"></app-fa-icon>
         Product Journey
       </h2>
       <p class="text-xs text-gray-500 mt-0.5">Interactive supply chain map · Click any pin for details</p>
     </div>
     <div class="flex items-center gap-2 flex-shrink-0">
-      <app-badge class="whitespace-nowrap"><lucide-icon name="map-pin" [size]="11"></lucide-icon> Sri Lanka</app-badge>
+      <app-badge class="whitespace-nowrap"><app-fa-icon name="map-pin" [size]="11"></app-fa-icon> Sri Lanka</app-badge>
       <span class="text-gray-300 text-xs">to</span>
-      <app-badge class="whitespace-nowrap"><lucide-icon name="map-pin" [size]="11"></lucide-icon> USA</app-badge>
+      <app-badge class="whitespace-nowrap"><app-fa-icon name="map-pin" [size]="11"></app-fa-icon> USA</app-badge>
     </div>
   </div>
 
@@ -21,20 +21,20 @@
       <div class="journey-drawer w-[340px] h-full overflow-y-auto border-l border-gray-100 animate-slide-right" style="background:#FAFAFA">
         <div class="sticky top-0 z-10 px-4 py-3 flex items-start gap-3 border-b border-gray-100" style="background:white">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" [style.background]="sel.color + '18'">
-            <lucide-icon [name]="sel.icon" [size]="20" [color]="sel.color"></lucide-icon>
+            <app-fa-icon [name]="sel.icon" [size]="20" [color]="sel.color"></app-fa-icon>
           </div>
           <div class="flex-1 min-w-0">
             <h3 class="font-semibold text-gray-900 text-sm leading-tight">{{ sel.stage }}</h3>
             <p class="text-xs text-gray-500 mt-0.5">{{ sel.location }}</p>
             <app-badge [color]="sel.color" [bg]="sel.color + '18'">
-              <span class="inline-flex items-center gap-1"><lucide-icon name="calendar" [size]="11"></lucide-icon>{{ sel.date }}</span>
+              <span class="inline-flex items-center gap-1"><app-fa-icon name="calendar" [size]="11"></app-fa-icon>{{ sel.date }}</span>
             </app-badge>
           </div>
           <button
             (click)="close()"
             class="w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors text-sm flex-shrink-0"
           >
-            <lucide-icon name="x" [size]="14"></lucide-icon>
+            <app-fa-icon name="x" [size]="14"></app-fa-icon>
           </button>
         </div>
 
@@ -49,7 +49,7 @@
 
         <div class="mx-4 mb-4 rounded-xl p-3" [style]="'background:' + PRIMARY_LIGHT + ';border:1px solid ' + PRIMARY + '22'">
           <p class="text-xs font-semibold mb-1 flex items-center gap-1" [style.color]="PRIMARY">
-            <lucide-icon name="shield-check" [size]="14"></lucide-icon> Blockchain Verified
+            <app-fa-icon name="shield-check" [size]="14"></app-fa-icon> Blockchain Verified
           </p>
           <p class="text-[10px] text-gray-600">Data confirmed on TerraX chain · No tampering detected</p>
         </div>
